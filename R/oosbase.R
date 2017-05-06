@@ -160,7 +160,7 @@ oos_rm <- function(credentials,container,file_name) {
   create_response
 }
 
-
+#' @export
 oos_dt_get_file <- function(credentials, container, file_name, cols) {
   fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
   remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
