@@ -7,3 +7,5 @@ export(oos_mkdir)
 export(oos_rm)
 export(oos_upload_file)
 import(httr)
+import(data.table)
+
