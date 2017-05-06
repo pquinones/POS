@@ -1,4 +1,4 @@
-Package: oraobjectstore
+Package: POS
 Type: Package
 Title: Tools to interact with Oracle Object Store
 Version: 0.1
