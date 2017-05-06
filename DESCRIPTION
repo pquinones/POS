@@ -1,0 +1,16 @@
+Package: oraobjectstore
+Type: Package
+Title: Tools to interact with Oracle Object Store
+Version: 0.1
+Date: 2017-04-04
+Author: Brian Macdonald <brian.macdonald@oracle.com>
+Maintainer: Brian Macdonald <brian.macdonald@oracle.com>
+Description: Allows commands from R like accesing a file on the object store, upload a file, list the directory,....
+    oraobjectstore  Copyright (C) 2017 Brian A. Macdonald
+    This program comes with ABSOLUTELY NO WARRANTY;
+    This is free software, and you are welcome to redistribute it
+    under certain conditions.
+License: GPL-3
+Imports: httr
+LazyData: TRUE
+RoxygenNote: 6.0.1
