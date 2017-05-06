@@ -4,7 +4,7 @@
 \alias{oos_get_file}
 \title{Downloads a file as a stream from the Oracle Object store.  Used to load files into a dataframe}
 \usage{
-oos_get_file(credentials, container, file_name)
+oos_get_file(credentials, container, file_name, delim, colClasses)
 }
 \arguments{
 \item{credentials}{List Object returned from a call to oos_autheticate}
@@ -12,6 +12,8 @@ oos_get_file(credentials, container, file_name)
 \item{container}{Full container name where a file resides.}
 
 \item{file_name}{The file name to download}
+
+\item{delim}{Delimiter of the csv file}
 }
 \value{
 returns the contents of the file as a result of a read.csv.  ONly tested with csvs.
@@ -20,6 +22,6 @@ returns the contents of the file as a result of a read.csv.  ONly tested with cs
 Downloads a file as a stream from the Oracle Object store.  Used to load files into a dataframe
 }
 \examples{
-#my_data <- oos_get_file(my_credentials,"sales" ,"data.csv")
-#my_data2 <- oos_get_file(my_credentials,"sales/2004" ,"data.csv")
+#my_data <- oos_get_file(my_credentials,"sales" ,"data.csv", ",")
+#my_data2 <- oos_get_file(my_credentials,"sales/2004" ,"data.csv", ";")
 }

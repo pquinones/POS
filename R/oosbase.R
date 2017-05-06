@@ -57,7 +57,7 @@ oos_authenticate <- function(id,username,password) {
 #' @param file_name The file name to download
 #' @param delim Delimiter of the csv file
 #' @return returns the contents of the file as a result of a read.csv.  ONly tested with csvs.
-#'
+#' @import data.table
 #' @examples
 #' #my_data <- oos_get_file(my_credentials,"sales" ,"data.csv", ",")
 #' #my_data2 <- oos_get_file(my_credentials,"sales/2004" ,"data.csv", ";")
@@ -160,6 +160,15 @@ oos_rm <- function(credentials,container,file_name) {
   create_response
 }
 
+
+#' get a file with data table library . Fread function
+#'
+#' @param credentials List Object returned from a call to oos_autheticate
+#' @param container Full container name where the file resides.
+#' @param file_name the name of the file to be removed
+#' @return returns any errors.  NULL means success.
+#' @examples
+#' #oos_dt_get_file(my_credentials,"sales","sales.csv", cols )
 #' @export
 oos_dt_get_file <- function(credentials, container, file_name, cols) {
   fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
