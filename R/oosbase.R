@@ -63,7 +63,32 @@ oos_authenticate <- function(id,username,password) {
 #' #my_data2 <- oos_get_file(my_credentials,"sales/2004" ,"data.csv", ";")
 #' @export
 #'
-oos_get_file <- function(credentials,container,file_name, delim) {
+oos_get_file <- function(credentials,container,file_name, delim, colClasses) {
+  if(missing(colClasses) && missing(delim))
+  {
+    fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+    remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+    data <- read.csv(file = textConnection(remote_file))
+    data
+  }else {
+
+    if(missing(colClasses))
+    {
+      fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+      remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+      data <- read.csv(file = textConnection(remote_file), sep = delim)
+      data
+    }else{
+
+      fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+      remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+      data <- read.csv(file = textConnection(remote_file), sep = delim, colClasses=colClasses )
+      data
+    }
+    
+  }
+
+
   fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
   remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
   data <- read.csv(file = textConnection(remote_file), sep = delim)

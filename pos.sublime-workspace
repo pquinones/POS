@@ -62,8 +62,16 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
+	"expanded_folders":
+	[
+		"/C/Users/pquinone/Documents/Git.Repos/POS",
+		"/C/Users/pquinone/Documents/Git.Repos/POS/R"
+	],
 	"file_history":
 	[
+		"/C/Users/pquinone/Documents/Git.Repos/POS/R/oosbase.R",
+		"/C/Users/pquinone/Documents/Git.Repos/POS/DESCRIPTION",
+		"/C/Users/pquinone/Documents/Git.Repos/POS/README.md",
 		"/E/NEW_CY17/INICIATIVAS/PRODUCTOS/SCS/FTM.Cli/ftmcli_v2.2.2/ftmcli_v2.2.2/ftmcli.properties",
 		"/E/NEW_CY17/CLIENTES/ECUADOR/FAVORITA/0. Big Data Retail/POC/feriados.csv",
 		"/E/NEW_CY17/INICIATIVAS/PRODUCTOS/CCS/10. Orchestrations/fscs_boot_disk_plan_0001.json",
