@@ -70,29 +70,25 @@ oos_get_file <- function(credentials,container,file_name, delim, colClasses) {
     remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
     data <- read.csv(file = textConnection(remote_file))
     data
-  }else {
+  
+  }else if(missing(colClasses)){
+          fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+          remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+          data <- read.csv(file = textConnection(remote_file), sep = delim)
+          data
+        
+        }else if{missing(delim){
+                fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+                remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+                data <- read.csv(file = textConnection(remote_file), colClasses=colClasses )
+                data
 
-    if(missing(colClasses))
-    {
-      fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
-      remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
-      data <- read.csv(file = textConnection(remote_file), sep = delim)
-      data
-    }else{
-
-      fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
-      remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
-      data <- read.csv(file = textConnection(remote_file), sep = delim, colClasses=colClasses )
-      data
-    }
-    
-  }
-
-
-  fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
-  remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
-  data <- read.csv(file = textConnection(remote_file), sep = delim)
-  data
+              }else
+                  fetch_url <- paste(credentials$url,"/",container,"/",file_name,sep="")
+                  remote_file <- content(httr::GET(url = fetch_url, add_headers ( "X-Auth-Token" = credentials$auth_token)), as="text")
+                  data <- read.csv(file = textConnection(remote_file), sep=delim, colClasses=colClasses )
+                  data
+  
 }
 
 #' Lists the contents of a container and all sub containers.
